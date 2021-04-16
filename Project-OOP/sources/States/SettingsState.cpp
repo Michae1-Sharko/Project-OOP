@@ -6,7 +6,7 @@ SettingsState::~SettingsState()
 }
 
 int
-SettingsState::getIndexOfCurrentState()
+SettingsState::getIndexOfNextFrameState()
 {
 	return m_currentState;
 }

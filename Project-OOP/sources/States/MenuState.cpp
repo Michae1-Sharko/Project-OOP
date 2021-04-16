@@ -6,7 +6,7 @@ MenuState::~MenuState()
 }
 
 int
-MenuState::getIndexOfCurrentState()
+MenuState::getIndexOfNextFrameState()
 {
 	return m_currentState;
 }
