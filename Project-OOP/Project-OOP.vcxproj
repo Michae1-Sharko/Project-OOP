@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -97,6 +97,8 @@
       <PreprocessorDefinitions>SFML_STATIC ;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -114,6 +116,8 @@
       <PreprocessorDefinitions>SFML_STATIC ;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +135,8 @@
       <PreprocessorDefinitions>SFML_STATIC ;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,6 +154,8 @@
       <PreprocessorDefinitions>SFML_STATIC ;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,16 +167,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\imgui\imgui-SFML.cpp" />
+    <ClCompile Include="include\imgui\imgui.cpp" />
+    <ClCompile Include="include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="include\imgui\imgui_widgets.cpp" />
     <ClCompile Include="sources\Engine.cpp" />
     <ClCompile Include="sources\main.cpp" />
+    <ClCompile Include="sources\States\CameraState.cpp" />
     <ClCompile Include="sources\States\MenuState.cpp" />
-    <ClCompile Include="sources\States\SettingsState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\Engine.hpp" />
     <ClInclude Include="headers\IEngineState.hpp" />
+    <ClInclude Include="headers\States\CameraState.hpp" />
     <ClInclude Include="headers\states\MenuState.hpp" />
-    <ClInclude Include="headers\states\SettingsState.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\bawls.png" />
+    <Image Include="resources\cat.png" />
+    <Image Include="resources\empty.png" />
+    <Image Include="resources\meat.png" />
+    <Image Include="resources\roomDown.png" />
+    <Image Include="resources\roomLeft.png" />
+    <Image Include="resources\roomRight.png" />
+    <Image Include="resources\roomUp.png" />
+    <Image Include="resources\water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\bawls.aseprite" />
+    <None Include="resources\roomDown.aseprite" />
+    <None Include="resources\roomLeft.aseprite" />
+    <None Include="resources\roomRight.aseprite" />
+    <None Include="resources\roomUp.aseprite" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

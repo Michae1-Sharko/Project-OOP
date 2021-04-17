@@ -19,6 +19,12 @@
     <Filter Include="headers\States">
       <UniqueIdentifier>{71a22ab8-f216-4140-8320-59460e01cab8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{11a1b0dd-277a-41dd-bd80-bf943212d11d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\imgui">
+      <UniqueIdentifier>{e7add92f-278c-400f-b74b-20d9d3225711}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\main.cpp">
@@ -30,7 +36,22 @@
     <ClCompile Include="sources\States\MenuState.cpp">
       <Filter>sources\States</Filter>
     </ClCompile>
-    <ClCompile Include="sources\States\SettingsState.cpp">
+    <ClCompile Include="include\imgui\imgui_tables.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui_widgets.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui-SFML.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui\imgui_draw.cpp">
+      <Filter>include\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\States\CameraState.cpp">
       <Filter>sources\States</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,14 +59,60 @@
     <ClInclude Include="headers\IEngineState.hpp">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="headers\states\SettingsState.hpp">
-      <Filter>headers\States</Filter>
-    </ClInclude>
     <ClInclude Include="headers\states\MenuState.hpp">
       <Filter>headers\States</Filter>
     </ClInclude>
     <ClInclude Include="headers\Engine.hpp">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="headers\States\CameraState.hpp">
+      <Filter>headers\States</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\bawls.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\cat.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\empty.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\meat.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\roomDown.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\roomLeft.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\roomRight.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\roomUp.png">
+      <Filter>resources</Filter>
+    </Image>
+    <Image Include="resources\water.png">
+      <Filter>resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\roomDown.aseprite">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\roomLeft.aseprite">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\roomRight.aseprite">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\roomUp.aseprite">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\bawls.aseprite">
+      <Filter>resources</Filter>
+    </None>
   </ItemGroup>
 </Project>

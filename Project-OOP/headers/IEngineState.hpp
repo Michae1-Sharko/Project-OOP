@@ -19,11 +19,11 @@ namespace State
 	enum
 	{
 		Menu,
-		Settings,
+		Camera,
 
 		AmountOfStates
 	};
 };
 
 #include "States/MenuState.hpp"
-#include "States/SettingsState.hpp"
+#include "States/CameraState.hpp"

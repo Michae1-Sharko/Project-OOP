@@ -1,12 +1,12 @@
 #pragma once
 
-#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics.hpp>
 
 class Engine
 {
 public:
 	Engine(
-		sf::VideoMode mode = sf::VideoMode::getDesktopMode(),
+		sf::VideoMode mode = sf::VideoMode { 800, 600 },
 		sf::String title = "[MS]: My Cat's Life",
 		sf::Uint32 style = sf::Style::Default
 	);
