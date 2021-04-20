@@ -1,11 +1,12 @@
 #pragma once
 
 #include "../IEngineState.hpp"
+#include "../Cat.hpp"
 
 class CameraState : public IEngineState
 {
 public:
-	CameraState();
+	CameraState(sf::RenderWindow& renderWindow);
 
 	virtual int getIndexOfNextFrameState() override;
 
@@ -16,6 +17,13 @@ public:
 	virtual ~CameraState();
 
 private:
-	int m_currentState = State::Menu;
+	int m_currentState = State::Camera;
 	bool m_isPaused = false;
+
+	Cat m_cat{ "resources/cat.png" };
+
+	sf::Texture m_textureRoom;
+	sf::Sprite m_room;
+
+	sf::View m_cameraView;
 };

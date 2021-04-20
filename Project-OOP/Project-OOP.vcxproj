@@ -172,12 +172,16 @@
     <ClCompile Include="include\imgui\imgui_draw.cpp" />
     <ClCompile Include="include\imgui\imgui_tables.cpp" />
     <ClCompile Include="include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="sources\Animation.cpp" />
+    <ClCompile Include="sources\Cat.cpp" />
     <ClCompile Include="sources\Engine.cpp" />
     <ClCompile Include="sources\main.cpp" />
     <ClCompile Include="sources\States\CameraState.cpp" />
     <ClCompile Include="sources\States\MenuState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\Animation.hpp" />
+    <ClInclude Include="headers\Cat.hpp" />
     <ClInclude Include="headers\Engine.hpp" />
     <ClInclude Include="headers\IEngineState.hpp" />
     <ClInclude Include="headers\States\CameraState.hpp" />

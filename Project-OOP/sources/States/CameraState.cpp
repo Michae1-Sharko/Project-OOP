@@ -3,8 +3,6 @@
 #include <imgui/imgui.h>
 #include <imgui/imgui-SFML.h>
 
-#include <string>
-
 const int global_CAT_JOKES_AMOUNT = 41;
 const char* global_cats_jokes[global_CAT_JOKES_AMOUNT] =
 {
@@ -51,9 +49,13 @@ const char* global_cats_jokes[global_CAT_JOKES_AMOUNT] =
 	"What sports do cats play ? Hairball!",
 };
 
-CameraState::CameraState()
+CameraState::CameraState(sf::RenderWindow& renderWindow)
 {
+	m_textureRoom.loadFromFile("resources/roomUp.png");
+	m_room.setTexture(m_textureRoom);
 
+	m_cameraView.setSize(160.f, 160.f);
+	m_cameraView.setCenter(192.f + 16.f, 64.f + 16.f);
 }
 
 CameraState::~CameraState() { }
@@ -78,8 +80,11 @@ CameraState::eventHandler(sf::RenderWindow& renderWindow)
 		if (event.type == sf::Event::Closed)
 			renderWindow.close();
 
-		if (event.type == sf::Event::KeyPressed)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			m_currentState = State::Menu;
+
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			m_isPaused = true;
 	}
 
 	ImGui::SFML::Update(renderWindow, deltaClock.restart());
@@ -88,7 +93,6 @@ CameraState::eventHandler(sf::RenderWindow& renderWindow)
 void
 CameraState::update(sf::RenderWindow& renderWindow)
 {
-	static int random_joke = 0;
 	ImGuiWindowFlags windowFlags =
 	{
 		ImGuiWindowFlags_NoResize |
@@ -100,41 +104,47 @@ CameraState::update(sf::RenderWindow& renderWindow)
 		ImGuiWindowFlags_AlwaysAutoResize
 	};
 
-	ImGui::SetNextWindowPos(ImVec2(30, 30));
-	ImGui::Begin("[MS]: Cat statistics", NULL, windowFlags);
+	static int random_joke = 0;
+	static bool wasOpened = false;
 
-
-
-	if (ImGui::Button("Pause##Button", ImVec2(-FLT_MIN, 20)))
+	if (m_isPaused && !wasOpened)
 	{
 		random_joke = rand() % global_CAT_JOKES_AMOUNT;
-		ImGui::OpenPopup("[MS]: Pause");
+		ImGui::OpenPopup("[MS]: Pause", ImGuiPopupFlags_AnyPopup);
+
+		wasOpened = true;
 	}
 
 	ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 	if (ImGui::BeginPopupModal("[MS]: Pause", NULL, windowFlags))
 	{
-		m_isPaused = true;
-
 		ImGui::Text("%s\n\n", global_cats_jokes[random_joke]);
 		ImGui::Separator();
 
 		if (ImGui::Button("Continue##Button", ImVec2(-FLT_MIN, 30)))
 		{
-			ImGui::CloseCurrentPopup(); 
-			m_isPaused = false;
-		}
+			ImGui::CloseCurrentPopup();
 
+			m_isPaused = false;
+			wasOpened = false;
+		}
 		ImGui::EndPopup();
 	}
 
-	ImGui::End();
+	if (m_isPaused == false)
+	{
+		m_cat.update(m_cameraView);
+		renderWindow.setView(m_cameraView);
+	}
 }
 
 void
 CameraState::draw(sf::RenderWindow& renderWindow)
 {
 	renderWindow.clear();
+
+	renderWindow.draw(m_room);
+	m_cat.draw(renderWindow);
 
 	ImGui::SFML::Render(renderWindow);
 	renderWindow.display();

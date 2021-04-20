@@ -26,7 +26,7 @@ Engine::start()
 	std::array<IEngineState*, State::AmountOfStates> arrayOfStates =
 	{ 
 		new MenuState(), 
-		new CameraState() 
+		new CameraState(m_renderWindow)
 	};
 	int indexOfNextFrameState = State::Menu;
 

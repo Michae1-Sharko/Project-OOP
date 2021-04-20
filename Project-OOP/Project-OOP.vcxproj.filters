@@ -54,6 +54,12 @@
     <ClCompile Include="sources\States\CameraState.cpp">
       <Filter>sources\States</Filter>
     </ClCompile>
+    <ClCompile Include="sources\Animation.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Cat.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\IEngineState.hpp">
@@ -67,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="headers\States\CameraState.hpp">
       <Filter>headers\States</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Animation.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Cat.hpp">
+      <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
